@@ -1,0 +1,15 @@
+Index: routes/messages.js
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- routes/messages.js	(revision 3a9f0c7a48e3185ae37952acd5edebebf99dff52)
++++ routes/messages.js	(revision )
+@@ -7,6 +7,7 @@
+ 
+ router.get('/', function (req, res, next) {
+     Message.find()
++        .populate('user', 'firstName')
+         .exec(function (err, messages) {
+             if (err) {
+                 return res.status(500).json({
